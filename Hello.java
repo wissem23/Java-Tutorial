@@ -25,16 +25,27 @@ class Hello {
         // boolean r = a<b && x<y; 
 
         // If Else if
-        int x = 8;
-        int y = 50;
-        int z= 12;
-        if(x>y && x>z){
-            System.out.println(x);
-        }
-        else if(y>z){
-            System.out.println(y);
-        }else{
-            System.out.println(z);
-        }
+        // int x = 8;
+        // int y = 50;
+        // int z= 12;
+        // if(x>y && x>z){
+        //     System.out.println(x);
+        // }
+        // else if(y>z){
+        //     System.out.println(y);
+        // }else{
+        //     System.out.println(z);
+        // }
+
+        //ternary
+
+        int x=5;
+         String result = "even";
+
+        // if( x%2 != 0){
+        //     result="odd";
+        // }
+        result = x%2 != 0 ? "odd" : "even";
+        System.out.println(result);
     }
 }
