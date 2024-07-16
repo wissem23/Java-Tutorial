@@ -1,5 +1,8 @@
 class Hello {
     public static void main( String[] args){
+         
+        //Type conversion
+
         // int i = 12 ;
         // byte b = 127;
         
@@ -12,15 +15,26 @@ class Hello {
         // //byte z = x*y ; out of byte range
         // int z = x*y ;
 
-        int a = 10;
-        int b = 5;
+        // Logical Operators
+        // int a = 10;
+        // int b = 5;
 
-        int x = 100;
+        // int x = 100;
+        // int y = 50;
+
+        // boolean r = a<b && x<y; 
+
+        // If Else if
+        int x = 8;
         int y = 50;
-
-        boolean r = a<b && x<y;
-
-
-        System.out.println(r);
+        int z= 12;
+        if(x>y && x>z){
+            System.out.println(x);
+        }
+        else if(y>z){
+            System.out.println(y);
+        }else{
+            System.out.println(z);
+        }
     }
 }
