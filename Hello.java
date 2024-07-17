@@ -39,13 +39,44 @@ class Hello {
 
         //ternary
 
-        int x=5;
-         String result = "even";
+        // int x=5;
+        //  String result = "even";
 
-        // if( x%2 != 0){
-        //     result="odd";
-        // }
-        result = x%2 != 0 ? "odd" : "even";
-        System.out.println(result);
+        // // if( x%2 != 0){
+        // //     result="odd";
+        // // }
+        // result = x%2 != 0 ? "odd" : "even";
+        // System.out.println(result);
+
+        //switch
+
+        int n = 5;
+        switch (n) {
+            case 1:
+                System.out.println("Monday");
+                break;
+            case 2:
+                System.out.println("Tuesday");
+                break;
+            case 3:
+                System.out.println("Thursday");
+                break;
+            case 4:
+                System.out.println("Wednesday");
+                break;
+            case 5:
+                System.out.println("Friday");
+                break;
+            case 6:
+                System.out.println("Sturday");
+                break;
+            case 7:
+                System.out.println("Sunday");
+                break;
+        
+            default:
+                System.out.println("enter a valid number");
+                break;
+        }
     }
 }
