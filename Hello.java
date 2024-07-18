@@ -1,3 +1,19 @@
+class Rectangle {
+    public int a=5;
+
+    public int Aire(int x,int y){
+        int ar= x*y;
+        return ar;
+    } 
+
+    // overloading (same name of methode ,different of return type and param number or type)
+    public double Aire(int x,int y ,double z){
+        double ar= x*y*z;
+        return ar;
+    } 
+}
+
+
 class Hello {
     public static void main( String[] args){
          
@@ -108,11 +124,22 @@ class Hello {
 
         //  for loop
 
-        for (int i=0;i<10;i++){
-            System.out.println(i);
-        }
+        // for (int i=0;i<10;i++){
+        //     System.out.println(i);
+        // }
 
-
+        // Class and Object
+        int n1=5;
+        int n2=2;
+        double n3 = 4;
+        Rectangle rec = new Rectangle();
+        int r=rec.Aire(n1, n2);
+        double r2=rec.Aire(n1, n2, n3);
+        System.out.println(r2);
+        System.out.println(rec.a);
 
     }
+    // Data Area( Stack And Heap ) 
+
+
 }
