@@ -162,7 +162,31 @@ class Hello {
         //         System.out.print(tab[i]+" ");
         //     }
         
+        // 2D Array
 
+        int tab[][] = new int[3][4];
+        for(int i=0;i<3;i++){
+            for(int j=0;j<4;j++){
+                tab[i][j]=(int)(Math.random()*10);
+            }
+        }
+
+        for (int i=0;i<3;i++){
+            for(int j=0;j<4;j++){
+                System.out.print(tab[i][j]+" ");
+            }
+        System.out.println();        
+        }
+       System.out.println();
+        // Enhanced for loop (or for each loop)
+        //for (Type element : arrayOrCollection) {// Use element }
+        for(int n[] : tab){
+            for(int m: n){
+                System.out.print(m + " ");        
+            }
+            System.out.println();
+        }
+        
 
        
 
