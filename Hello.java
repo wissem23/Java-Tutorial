@@ -129,17 +129,46 @@ class Hello {
         // }
 
         // Class and Object
-        int n1=5;
-        int n2=2;
-        double n3 = 4;
-        Rectangle rec = new Rectangle();
-        int r=rec.Aire(n1, n2);
-        double r2=rec.Aire(n1, n2, n3);
-        System.out.println(r2);
-        System.out.println(rec.a);
+        // int n1=5;
+        // int n2=2;
+        // double n3 = 4;
+        // Rectangle rec = new Rectangle();
+        // int r=rec.Aire(n1, n2);
+        // double r2=rec.Aire(n1, n2, n3);
+        // System.out.println(r2);
+        // System.out.println(rec.a);
+
+        // Data Area( Stack And Heap ) 
+
+
+        // Array
+
+        // int nums[] = {5,6,9,45};  //taille mutable
+         // nums[1]=17;
+        //System.out.println(nums.length);
+        // System.out.print('{');
+        // for(int i=0;i<nums.length;i++){
+        //     System.out.print(nums[i]+" ,");
+        // }
+        //System.out.print('}');
+        
+        // int tab[] = new int[4]; //taille immutable
+        // tab[0]=14;
+        // tab[1]=4;
+        // tab[2]=1;
+        // tab[3]=8;
+        // //tab[4]=9;
+        // for(int i=0;i<tab.length;i++){
+        //         System.out.print(tab[i]+" ");
+        //     }
+        
+
+
+       
+
 
     }
-    // Data Area( Stack And Heap ) 
+   
 
 
 }
