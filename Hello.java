@@ -12,6 +12,12 @@ class Rectangle {
         return ar;
     } 
 }
+class Student {
+    public String name;
+    public String classroom;
+    public int age;
+
+}
 
 
 class Hello {
@@ -164,30 +170,47 @@ class Hello {
         
         // 2D Array
 
-        int tab[][] = new int[3][4];
-        for(int i=0;i<3;i++){
-            for(int j=0;j<4;j++){
-                tab[i][j]=(int)(Math.random()*10);
-            }
-        }
+    //     int tab[][] = new int[3][4];
+    //     for(int i=0;i<3;i++){
+    //         for(int j=0;j<4;j++){
+    //             tab[i][j]=(int)(Math.random()*10);
+    //         }
+    //     }
 
-        for (int i=0;i<3;i++){
-            for(int j=0;j<4;j++){
-                System.out.print(tab[i][j]+" ");
-            }
-        System.out.println();        
-        }
-       System.out.println();
-        // Enhanced for loop (or for each loop)
-        //for (Type element : arrayOrCollection) {// Use element }
-        for(int n[] : tab){
-            for(int m: n){
-                System.out.print(m + " ");        
-            }
-            System.out.println();
-        }
+    //     for (int i=0;i<3;i++){
+    //         for(int j=0;j<4;j++){
+    //             System.out.print(tab[i][j]+" ");
+    //         }
+    //     System.out.println();        
+    //     }
+    //    System.out.println();
+    //     // Enhanced for loop (or for-each loop)
+    //     //for(dataType variable : array) {// Use element }
+    //     for(int n[] : tab){
+    //         for(int m: n){
+    //             System.out.print(m + " ");        
+    //         }
+    //         System.out.println();
+    //     }
         
+    // Array of object
+    Student s1 = new Student();
+    s1.name= "ahmed";
+    s1.classroom = "IT";
+    s1.age=24;
 
+    Student s2 = new Student();
+    s2.name= "rami";
+    s2.classroom = "GC";
+    s2.age=27;
+    
+    Student students[] = new Student[2];
+    students[0]=s1;
+    students[1]=s2;
+
+    for(int i=0 ;i<students.length;i++){
+        System.out.println(students[i].name +": "+students[i].classroom+ " :"+students[i].age);
+    }
        
 
 
