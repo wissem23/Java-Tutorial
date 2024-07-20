@@ -21,7 +21,7 @@ class Student {
 
 
 class Hello {
-    public static void main( String[] args){
+    public static void main( String[] args) throws ClassNotFoundException{
          
         //Type conversion
 
@@ -168,81 +168,126 @@ class Hello {
         //         System.out.print(tab[i]+" ");
         //     }
         
-        // 2D Array
+    // 2D Array
 
-    //     int tab[][] = new int[3][4];
-    //     for(int i=0;i<3;i++){
-    //         for(int j=0;j<4;j++){
-    //             tab[i][j]=(int)(Math.random()*10);
-    //         }
-    //     }
+        //     int tab[][] = new int[3][4];
+        //     for(int i=0;i<3;i++){
+        //         for(int j=0;j<4;j++){
+        //             tab[i][j]=(int)(Math.random()*10);
+        //         }
+        //     }
 
-    //     for (int i=0;i<3;i++){
-    //         for(int j=0;j<4;j++){
-    //             System.out.print(tab[i][j]+" ");
-    //         }
-    //     System.out.println();        
-    //     }
-    //    System.out.println();
-    //     // Enhanced for loop (or for-each loop)
-    //     //for(dataType variable : array) {// Use element }
-    //     for(int n[] : tab){
-    //         for(int m: n){
-    //             System.out.print(m + " ");        
-    //         }
-    //         System.out.println();
-    //     }
+        //     for (int i=0;i<3;i++){
+        //         for(int j=0;j<4;j++){
+        //             System.out.print(tab[i][j]+" ");
+        //         }
+        //     System.out.println();        
+        //     }
+        //    System.out.println();
+        //     // Enhanced for loop (or for-each loop)
+        //     //for(dataType variable : array) {// Use element }
+        //     for(int n[] : tab){
+        //         for(int m: n){
+        //             System.out.print(m + " ");        
+        //         }
+        //         System.out.println();
+        //     }
         
     // Array of object
-    // Student s1 = new Student();
-    // s1.name= "ahmed";
-    // s1.classroom = "IT";
-    // s1.age=24;
+        // Student s1 = new Student();
+        // s1.name= "ahmed";
+        // s1.classroom = "IT";
+        // s1.age=24;
 
-    // Student s2 = new Student();
-    // s2.name= "rami";
-    // s2.classroom = "GC";
-    // s2.age=27;
-    
-    // Student students[] = new Student[2];
-    // students[0]=s1;
-    // students[1]=s2;
+        // Student s2 = new Student();
+        // s2.name= "rami";
+        // s2.classroom = "GC";
+        // s2.age=27;
+        
+        // Student students[] = new Student[2];
+        // students[0]=s1;
+        // students[1]=s2;
 
-    // for(int i=0 ;i<students.length;i++){
-    //     System.out.println(students[i].name +": "+students[i].classroom+ " :"+students[i].age);
-    // }
+        // for(int i=0 ;i<students.length;i++){
+        //     System.out.println(students[i].name +": "+students[i].classroom+ " :"+students[i].age);
+        // }
 
     // For-Each loop
-    // for (Student s : students) {
-    //     System.out.println(s.name +": "+s.classroom+ " :"+s.age);
-    // }
+        // for (Student s : students) {
+        //     System.out.println(s.name +": "+s.classroom+ " :"+s.age);
+        // }
 
     // String (or String Builder): Mutable , not thread safe
-    // String name = "wissem";
-    // System.out.println(name.hashCode());
-    // name = name + " ch";
-    // System.out.println(name.hashCode());
-    // System.out.println(name);
+        // String name = "wissem";
+        // System.out.println(name.hashCode());
+        // name = name + " ch";
+        // System.out.println(name.hashCode());
+        // System.out.println(name);
 
-    // String s1 = "Wissem";
-    // String s2 = "Wissem";
-    
-    // System.out.println(s1==s2);
-    // System.out.println(s1.hashCode());
-    // System.out.println(s2.hashCode());
+        // String s1 = "Wissem";
+        // String s2 = "Wissem";
+        
+        // System.out.println(s1==s2);
+        // System.out.println(s1.hashCode());
+        // System.out.println(s2.hashCode());
 
-    // //String lastName = new String("chehoumi");
-    // System.out.println(name);
+        // //String lastName = new String("chehoumi");
+        // System.out.println(name);
 
     // String Buffer  : Immutable ,thread safe
-        StringBuffer s1 = new StringBuffer("wissem");
-        // s1 = "chehoumi";   this is not work
-        System.out.println(s1.capacity()); // 22 caractere :  16 caractere always present and the 6 fo wissem
-        s1.append(" chehoumi");
-        s1.insert(7, "al ");
-        String s2 = s1.toString();
-        System.out.println(s2);
-        System.out.println(s1);
+        // StringBuffer s1 = new StringBuffer("wissem");
+        // // s1 = "chehoumi";   this is not work
+        // System.out.println(s1.capacity()); // 22 caractere :  16 caractere always present and the 6 fo wissem
+        // s1.append(" chehoumi");
+        // s1.insert(7, "al ");
+        // String s2 = s1.toString();
+        // System.out.println(s2);
+        // System.out.println(s1);
+
+    //static (ps: class loads & objects are instantiated)
+        //static variable
+            class Mobile {
+                String brand;
+                double price;
+                static String name;
+                public void show(){
+                    System.out.println(brand + " "+price+" "+name);
+                }
+                //static methode
+                public static void show1(Mobile obj){
+                    System.out.println(obj.brand + " "+obj.price+" "+name);
+                }
+            //contructor    
+            public Mobile(){
+                brand ="";
+                price = 0;
+                System.out.println("this is static contructor");
+
+
+            };
+            // static block
+            static{
+                name = "Phone";
+                System.out.println("this is static block");
+            }
+            }
+
+            Mobile m1 = new Mobile();
+            m1.brand = "apple";
+            m1.price = 1500;
+            Mobile.name = "SmartPhone";
+
+            Mobile m2 = new Mobile();
+            m2.brand = "sumsung";
+            m2.price = 1200;
+
+            Mobile.name = "Phone";
+            m2.show();
+
+            Mobile m3 = new Mobile();
+            System.out.println(m3.price);
+        // Class.forName("Mobile");
+            Mobile.show1(m1);
 
     }
    
