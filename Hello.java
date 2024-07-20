@@ -194,25 +194,55 @@ class Hello {
     //     }
         
     // Array of object
-    Student s1 = new Student();
-    s1.name= "ahmed";
-    s1.classroom = "IT";
-    s1.age=24;
+    // Student s1 = new Student();
+    // s1.name= "ahmed";
+    // s1.classroom = "IT";
+    // s1.age=24;
 
-    Student s2 = new Student();
-    s2.name= "rami";
-    s2.classroom = "GC";
-    s2.age=27;
+    // Student s2 = new Student();
+    // s2.name= "rami";
+    // s2.classroom = "GC";
+    // s2.age=27;
     
-    Student students[] = new Student[2];
-    students[0]=s1;
-    students[1]=s2;
+    // Student students[] = new Student[2];
+    // students[0]=s1;
+    // students[1]=s2;
 
-    for(int i=0 ;i<students.length;i++){
-        System.out.println(students[i].name +": "+students[i].classroom+ " :"+students[i].age);
-    }
-       
+    // for(int i=0 ;i<students.length;i++){
+    //     System.out.println(students[i].name +": "+students[i].classroom+ " :"+students[i].age);
+    // }
 
+    // For-Each loop
+    // for (Student s : students) {
+    //     System.out.println(s.name +": "+s.classroom+ " :"+s.age);
+    // }
+
+    // String (or String Builder): Mutable , not thread safe
+    // String name = "wissem";
+    // System.out.println(name.hashCode());
+    // name = name + " ch";
+    // System.out.println(name.hashCode());
+    // System.out.println(name);
+
+    // String s1 = "Wissem";
+    // String s2 = "Wissem";
+    
+    // System.out.println(s1==s2);
+    // System.out.println(s1.hashCode());
+    // System.out.println(s2.hashCode());
+
+    // //String lastName = new String("chehoumi");
+    // System.out.println(name);
+
+    // String Buffer  : Immutable ,thread safe
+        StringBuffer s1 = new StringBuffer("wissem");
+        // s1 = "chehoumi";   this is not work
+        System.out.println(s1.capacity()); // 22 caractere :  16 caractere always present and the 6 fo wissem
+        s1.append(" chehoumi");
+        s1.insert(7, "al ");
+        String s2 = s1.toString();
+        System.out.println(s2);
+        System.out.println(s1);
 
     }
    
