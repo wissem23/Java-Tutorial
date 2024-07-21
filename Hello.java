@@ -18,6 +18,27 @@ class Student {
     public int age;
 
 }
+class Human{
+    private String name;
+    private int age;
+
+    public String getName(){
+        return name;
+    }
+    public void setName(String name){
+            this.name = name;
+        }
+    // public void setName(String name,Human obj){
+    //     obj.name = name;
+    // }
+    public int getAge(){
+        return age;
+    }
+    public void setAge(int age){
+        this.age = age;
+    }
+
+}
 
 
 class Hello {
@@ -246,48 +267,55 @@ class Hello {
 
     //static (ps: class loads & objects are instantiated)
         //static variable
-            class Mobile {
-                String brand;
-                double price;
-                static String name;
-                public void show(){
-                    System.out.println(brand + " "+price+" "+name);
-                }
-                //static methode
-                public static void show1(Mobile obj){
-                    System.out.println(obj.brand + " "+obj.price+" "+name);
-                }
-            //contructor    
-            public Mobile(){
-                brand ="";
-                price = 0;
-                System.out.println("this is static contructor");
+        //     class Mobile {
+        //         String brand;
+        //         double price;
+        //         static String name;
+        //         public void show(){
+        //             System.out.println(brand + " "+price+" "+name);
+        //         }
+        //         //static methode
+        //         public static void show1(Mobile obj){
+        //             System.out.println(obj.brand + " "+obj.price+" "+name);
+        //         }
+        //     //contructor    
+        //     public Mobile(){
+        //         brand ="";
+        //         price = 0;
+        //         System.out.println("this is static contructor");
 
 
-            };
-            // static block
-            static{
-                name = "Phone";
-                System.out.println("this is static block");
-            }
-            }
+        //     };
+        //     // static block
+        //     static{
+        //         name = "Phone";
+        //         System.out.println("this is static block");
+        //     }
+        //     }
 
-            Mobile m1 = new Mobile();
-            m1.brand = "apple";
-            m1.price = 1500;
-            Mobile.name = "SmartPhone";
+        //     Mobile m1 = new Mobile();
+        //     m1.brand = "apple";
+        //     m1.price = 1500;
+        //     Mobile.name = "SmartPhone";
 
-            Mobile m2 = new Mobile();
-            m2.brand = "sumsung";
-            m2.price = 1200;
+        //     Mobile m2 = new Mobile();
+        //     m2.brand = "sumsung";
+        //     m2.price = 1200;
 
-            Mobile.name = "Phone";
-            m2.show();
+        //     Mobile.name = "Phone";
+        //     m2.show();
 
-            Mobile m3 = new Mobile();
-            System.out.println(m3.price);
-        // Class.forName("Mobile");
-            Mobile.show1(m1);
+        //     Mobile m3 = new Mobile();
+        //     System.out.println(m3.price);
+        // // Class.forName("Mobile");
+        //     Mobile.show1(m1);
+
+    // Encapsulation
+        Human h1 = new Human();
+        //h1.setName("wissem",h1);
+        h1.setName("wissem");
+        h1.setAge(25);
+        System.out.println(h1.getName()+" "+h1.getAge());
 
     }
    
