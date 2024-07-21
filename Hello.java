@@ -22,6 +22,18 @@ class Human{
     private String name;
     private int age;
 
+    // Constructor
+    //Default Constructor
+    public Human(){
+        
+    }
+    //Parameterized Constructor
+    public Human(String name , int age ){
+        this.name = name;
+        this.age=age;
+
+    }
+    //Getters & Setters
     public String getName(){
         return name;
     }
@@ -311,12 +323,15 @@ class Hello {
         //     Mobile.show1(m1);
 
     // Encapsulation
-        Human h1 = new Human();
-        //h1.setName("wissem",h1);
-        h1.setName("wissem");
-        h1.setAge(25);
-        System.out.println(h1.getName()+" "+h1.getAge());
-
+        // Human h1 = new Human();
+        // //h1.setName("wissem",h1);
+        // h1.setName("wissem");
+        // h1.setAge(25);
+        // System.out.println(h1.getName()+" "+h1.getAge());
+    // Constructor
+        Human h2 = new Human("Ali",15);
+        System.out.println(h2.getName()+" : "+h2.getAge());
+        
     }
    
 
