@@ -51,6 +51,26 @@ class Human{
     }
 
 }
+class A {
+public A(){
+    System.out.println("in A");
+}
+public A(int n){
+    System.out.println("in A int");
+}
+}
+class B extends A{
+    public B(){
+        //super(5);
+        this(7);
+        System.out.println("in B");
+    }
+    public B(int m){
+        super(m);
+        //this();
+        System.out.println("in B int");
+    }
+}
 
 
 class Hello {
@@ -329,8 +349,12 @@ class Hello {
         // h1.setAge(25);
         // System.out.println(h1.getName()+" "+h1.getAge());
     // Constructor
-        Human h2 = new Human("Ali",15);
-        System.out.println(h2.getName()+" : "+h2.getAge());
+        // Human h2 = new Human("Ali",15);
+        // System.out.println(h2.getName()+" : "+h2.getAge());
+
+    //super & this
+    B b = new B();
+    //B b1 = new B(5);
         
     }
    
