@@ -72,6 +72,24 @@ class B extends A{
     }
 }
 
+class C {
+    public void show(){
+        System.out.println("in C show");
+    }
+    public void play(){
+        System.out.println("in C play");
+    }
+}
+
+class D extends C {
+    @Override
+    public void show(){
+        System.out.println("in D show");
+    }
+   
+
+}
+
 
 class Hello {
     public static void main( String[] args) throws ClassNotFoundException{
@@ -352,12 +370,20 @@ class Hello {
         // Human h2 = new Human("Ali",15);
         // System.out.println(h2.getName()+" : "+h2.getAge());
 
-    //super & this
-    B b = new B();
-    //B b1 = new B(5);
+    //super() & this()
+        // B b = new B();
+        // //B b1 = new B(5);
+
+    // Inheritance
+        // AdvCal obj1 = new AdvCal();
+        // int n1 = obj1.add(5, 2);
+        // int n2 = obj1.mul(5, 2);
+        // System.out.println(n1+"    "+n2);
+     
+    // Overriding    
+        D obj = new D();
+        obj.show();
+        obj.play();
         
     }
-   
-
-
 }
