@@ -1,97 +1,132 @@
-class Rectangle {
-    public int a=5;
 
-    public int Aire(int x,int y){
-        int ar= x*y;
-        return ar;
-    } 
+import tools.*;
 
-    // overloading (same name of methode ,different of return type and param number or type)
-    public double Aire(int x,int y ,double z){
-        double ar= x*y*z;
-        return ar;
-    } 
+//abstruct
+abstract class Car {
+    public abstract void drive();
+    
+    public abstract void camion();
 }
-class Student {
-    public String name;
-    public String classroom;
-    public int age;
+abstract class Bmw extends Car{
 
-}
-class Human{
-    private String name;
-    private int age;
-
-    // Constructor
-    //Default Constructor
-    public Human(){
-        
-    }
-    //Parameterized Constructor
-    public Human(String name , int age ){
-        this.name = name;
-        this.age=age;
-
-    }
-    //Getters & Setters
-    public String getName(){
-        return name;
-    }
-    public void setName(String name){
-            this.name = name;
-        }
-    // public void setName(String name,Human obj){
-    //     obj.name = name;
-    // }
-    public int getAge(){
-        return age;
-    }
-    public void setAge(int age){
-        this.age = age;
-    }
-
-}
-class A {
-public A(){
-    System.out.println("in A");
-}
-public A(int n){
-    System.out.println("in A int");
-}
-}
-class B extends A{
-    public B(){
-        //super(5);
-        this(7);
-        System.out.println("in B");
-    }
-    public B(int m){
-        super(m);
-        //this();
-        System.out.println("in B int");
-    }
-}
-
-class C {
-    public void show(){
-        System.out.println("in C show");
-    }
-    public void play(){
-        System.out.println("in C play");
-    }
-}
-
-class D extends C {
     @Override
-    public void show(){
-        System.out.println("in D show");
+    public void drive() {
+       System.out.println("in driving");
     }
+    public void playingMusic(){
+        System.out.println("in playing music");
+    }
+    
+}
+class Bmw4x4 extends Bmw{
+
+    @Override
+    public void camion() {
+        System.out.println("has  camion");
+    }
+
+}
+class BmwSport extends Bmw4x4 {
+    public void modeSport(){
+        System.out.println("mode sport On");
+    }
+}
+
+
+// class Rectangle {
+//     public int a=5;
+
+//     public int Aire(int x,int y){
+//         int ar= x*y;
+//         return ar;
+//     } 
+
+//     // overloading (same name of methode ,different of return type and param number or type)
+//     public double Aire(int x,int y ,double z){
+//         double ar= x*y*z;
+//         return ar;
+//     } 
+// }
+// class Student {
+//     public String name;
+//     public String classroom;
+//     public int age;
+
+// }
+// class Human{
+//     private String name;
+//     private int age;
+
+//     // Constructor
+//     //Default Constructor
+//     public Human(){
+        
+//     }
+//     //Parameterized Constructor
+//     public Human(String name , int age ){
+//         this.name = name;
+//         this.age=age;
+
+//     }
+//     //Getters & Setters
+//     public String getName(){
+//         return name;
+//     }
+//     public void setName(String name){
+//             this.name = name;
+//         }
+//     // public void setName(String name,Human obj){
+//     //     obj.name = name;
+//     // }
+//     public int getAge(){
+//         return age;
+//     }
+//     public void setAge(int age){
+//         this.age = age;
+//     }
+
+// }
+// class A {
+// public A(){
+//     System.out.println("in A");
+// }
+// public A(int n){
+//     System.out.println("in A int");
+// }
+// }
+// class B extends A{
+//     public B(){
+//         //super(5);
+//         this(7);
+//         System.out.println("in B");
+//     }
+//     public B(int m){
+//         super(m);
+//         //this();
+//         System.out.println("in B int");
+//     }
+// }
+
+// class C {
+//     public void show(){
+//         System.out.println("in C show");
+//     }
+//     public void play(){
+//         System.out.println("in C play");
+//     }
+// }
+
+// class D extends C {
+//     @Override
+//     public void show(){
+//         System.out.println("in D show");
+//     }
    
 
-}
+// }
 
 
-class Hello {
+class Main {
     public static void main( String[] args) throws ClassNotFoundException{
          
         //Type conversion
@@ -381,9 +416,26 @@ class Hello {
         // System.out.println(n1+"    "+n2);
      
     // Overriding    
-        D obj = new D();
-        obj.show();
-        obj.play();
+        // D obj = new D();
+        // obj.show();
+        // obj.play();
+
+    
+    // Abstruct and Polymorphisme
+        Car obj = new Bmw4x4();
+        obj.drive();
+       // obj.playingMusic();
+        obj.camion();
+
+        // UpCasting
+        Bmw4x4 obj1 = new BmwSport();
+       // obj1 same obj2
+        Bmw4x4 obj2 =(Bmw4x4) new BmwSport();
+
+        //DownCasting
+        BmwSport obj3 = (BmwSport)obj1;
+
+
         
     }
 }
