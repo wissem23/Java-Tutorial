@@ -2,29 +2,48 @@
 //import tools.*;
 
 //interfaces
-interface I {
-    int age = 18;        // by default: static final
+// interface I {
+//     int age = 18;        // by default: static final
     
-    void show();        // by default: public abstract
-    void confg();
-}
-interface J {
-    void play();
-}
-interface K extends J{
+//     void show();        // by default: public abstract
+//     void confg();
+// }
+// interface J {
+//     void play();
+// }
+// interface K extends J{
 
-}
-class C implements I,K{
-    public void confg() {
-        System.out.println("In config C ");        
-    }
-    public void show() {
-        System.out.println("In show C");        
-    }
+// }
+// class C implements I,K{
+//     public void confg() {
+//         System.out.println("In config C ");        
+//     }
+//     public void show() {
+//         System.out.println("In show C");        
+//     }
     
-    public void play() {
-        System.out.println("In play C");
-    }   
+//     public void play() {
+//         System.out.println("In play C");
+//     }   
+// }
+interface Computer{
+    void code();
+}
+class Laptop implements Computer {
+    public void code(){
+        System.out.println("coding , compile , run ");
+    }
+}
+class Desktop implements Computer{
+    public void code(){
+        System.out.println("coding , compile , run : faster");
+    }
+}
+class Developer{
+    public void devApp(Computer Comp){
+        Comp.code();
+    }
+   
 }
 
 //abstruct
@@ -462,15 +481,21 @@ class Main {
     //     BmwSport obj3 = (BmwSport)obj1;
 
     //interface
-        I obj;
-        obj = new C();
-        obj.confg();
-        obj.show();
+        // I obj;
+        // obj = new C();
+        // obj.confg();
+        // obj.show();
 
-        K obj1 = new C();
-        obj1.play();
+        // K obj1 = new C();
+        // obj1.play();
 
-        System.out.println(I.age);
+        // System.out.println(I.age);
+
+        Computer lap = new Laptop();
+        Computer desk = new Laptop();
+
+        Developer dev = new Developer();
+        dev.devApp(desk);
         
     }
 }
