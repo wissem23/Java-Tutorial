@@ -1,36 +1,62 @@
 
-import tools.*;
+//import tools.*;
+
+//interfaces
+interface I {
+    int age = 18;        // by default: static final
+    
+    void show();        // by default: public abstract
+    void confg();
+}
+interface J {
+    void play();
+}
+interface K extends J{
+
+}
+class C implements I,K{
+    public void confg() {
+        System.out.println("In config C ");        
+    }
+    public void show() {
+        System.out.println("In show C");        
+    }
+    
+    public void play() {
+        System.out.println("In play C");
+    }   
+}
 
 //abstruct
-abstract class Car {
-    public abstract void drive();
+// abstract class Car {
+//     public abstract void drive();
     
-    public abstract void camion();
-}
-abstract class Bmw extends Car{
+//     public abstract void camion();
+// }
+// abstract class Bmw extends Car{
 
-    @Override
-    public void drive() {
-       System.out.println("in driving");
-    }
-    public void playingMusic(){
-        System.out.println("in playing music");
-    }
+//     @Override
+//     public void drive() {
+//        System.out.println("in driving");
+//     }
+//     public void playingMusic(){
+//         System.out.println("in playing music");
+//     }
     
-}
-class Bmw4x4 extends Bmw{
+// }
+// class Bmw4x4 extends Bmw{
 
-    @Override
-    public void camion() {
-        System.out.println("has  camion");
-    }
+//     @Override
+//     public void camion() {
+//         System.out.println("has  camion");
+//     }
 
-}
-class BmwSport extends Bmw4x4 {
-    public void modeSport(){
-        System.out.println("mode sport On");
-    }
-}
+// }
+// class BmwSport extends Bmw4x4 {
+//     public void modeSport(){
+//         System.out.println("mode sport On");
+//     }
+// }
 
 
 // class Rectangle {
@@ -422,20 +448,29 @@ class Main {
 
     
     // Abstruct and Polymorphisme
-        Car obj = new Bmw4x4();
-        obj.drive();
-       // obj.playingMusic();
-        obj.camion();
+    //     Car obj = new Bmw4x4();
+    //     obj.drive();
+    //    // obj.playingMusic();
+    //     obj.camion();
 
-        // UpCasting
-        Bmw4x4 obj1 = new BmwSport();
-       // obj1 same obj2
-        Bmw4x4 obj2 =(Bmw4x4) new BmwSport();
+    //     // UpCasting
+    //     Bmw4x4 obj1 = new BmwSport();
+    //    // obj1 same obj2
+    //     Bmw4x4 obj2 =(Bmw4x4) new BmwSport();
 
-        //DownCasting
-        BmwSport obj3 = (BmwSport)obj1;
+    //     //DownCasting
+    //     BmwSport obj3 = (BmwSport)obj1;
 
+    //interface
+        I obj;
+        obj = new C();
+        obj.confg();
+        obj.show();
 
+        K obj1 = new C();
+        obj1.play();
+
+        System.out.println(I.age);
         
     }
 }
