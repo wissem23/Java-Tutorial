@@ -1,10 +1,10 @@
 
 //import tools.*;
 
-@FunctionalInterface   // have one methode
-interface I {
-    int add(int i , int j);
-}
+// @FunctionalInterface   // have one methode
+// interface I {
+//     int add(int i , int j);
+// }
 
 
 // enums
@@ -205,7 +205,7 @@ interface I {
 
 
 class Main {
-    public static void main( String[] args) throws ClassNotFoundException{
+    public static void main( String[] args) {
          
         //Type conversion
 
@@ -546,20 +546,42 @@ class Main {
         // }
 
     //Functional Interface
-        I obj = new I() {
-            @Override
-            public int add(int i,int j){
-                return i+j;
-            }
-            
-        };
-       int r =  obj.add(5,8);
-       System.out.println(r);
+        //I obj = new I() {
+        //@Override
+        //public int add(int i,int j){
+        //return i+j;
+        //}
+        //};
+        //int r =  obj.add(5,8);
+        //System.out.println(r);
+        // interface types: normal, Functional (sam:single abstruct methode) , marker (empty)
     //Lamda Expression
-    I obj1 =  (i,j) ->  i+j;
-       
-   int r1 =  obj1.add(2,3);
-   System.out.println(r1);
+        //I obj1 =  (i,j) ->  i+j;
+        //int r1 =  obj1.add(2,3);
+        //System.out.println(r1);
+    //Exeption
+        int j=0;
+        int i = 2; // 0
+        int tab[] = new int[5]; 
+        String str = "not null"; // null
+        try
+        {
+            j=18/i;
+            System.out.println(tab[2]); // 5>=
+            System.out.println(str.length()); 
+
+        }catch(ArithmeticException e){
+            System.out.println("dont divide by zero :"+e);
+        }catch(ArrayIndexOutOfBoundsException e){
+            System.out.println("out of index : "+e);
+        }catch(NullPointerException e){
+            System.out.println("null string : "+e);
+        }catch(Exception e){
+            System.out.println(e);
+        }
+        
+        System.out.println(j);
+        System.out.println("end excution");
 
     }
 }
