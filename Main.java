@@ -1,6 +1,34 @@
 
 //import tools.*;
 
+// enums
+enum Status{
+    Running,
+    Faild,
+    Pending,
+    Success
+}
+enum Laptop{
+    Macbook(2000) , Tuf , Thinkpad(2200) , XPS(3000) ;
+
+    private int price;
+
+    private Laptop(int price) {
+        this.price = price;
+    }
+    private Laptop(){
+        price = 1800;
+    }
+    public int getPrice() {
+        return price;
+    }
+    public void setPrice(int price) {
+        this.price = price;
+    }
+    
+
+}
+
 //interfaces
 // interface I {
 //     int age = 18;        // by default: static final
@@ -26,25 +54,26 @@
 //         System.out.println("In play C");
 //     }   
 // }
-interface Computer{
-    void code();
-}
-class Laptop implements Computer {
-    public void code(){
-        System.out.println("coding , compile , run ");
-    }
-}
-class Desktop implements Computer{
-    public void code(){
-        System.out.println("coding , compile , run : faster");
-    }
-}
-class Developer{
-    public void devApp(Computer Comp){
-        Comp.code();
-    }
+
+// interface Computer{
+//     void code();
+// }
+// class Laptop implements Computer {
+//     public void code(){
+//         System.out.println("coding , compile , run ");
+//     }
+// }
+// class Desktop implements Computer{
+//     public void code(){
+//         System.out.println("coding , compile , run : faster");
+//     }
+// }
+// class Developer{
+//     public void devApp(Computer Comp){
+//         Comp.code();
+//     }
    
-}
+// }
 
 //abstruct
 // abstract class Car {
@@ -490,12 +519,28 @@ class Main {
         // obj1.play();
 
         // System.out.println(I.age);
+    //Need of Interface
+        // Computer lap = new Laptop();
+        // Computer desk = new Laptop();
 
-        Computer lap = new Laptop();
-        Computer desk = new Laptop();
+        // Developer dev = new Developer();
+        // dev.devApp(desk);
+    
+    //Enums
+        // Status s = Status.Running;
+        // //System.out.println(s);
 
-        Developer dev = new Developer();
-        dev.devApp(desk);
+        // Status ss[] = Status.values();
+        // for (Status status : ss) {
+        //     System.out.println(status+" : "+status.ordinal());
+        // }
+
+        Laptop lap = Laptop.Tuf;
         
+        for (Laptop laptop : lap.values()) {
+            System.out.println(laptop+ " : " +laptop.getPrice());
+        }
+
+
     }
 }
