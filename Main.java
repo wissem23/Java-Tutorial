@@ -1,33 +1,37 @@
 
 //import tools.*;
 
+@FunctionalInterface   // have one methode
+interface I {
+    int add(int i , int j);
+}
+
+
 // enums
-enum Status{
-    Running,
-    Faild,
-    Pending,
-    Success
-}
-enum Laptop{
-    Macbook(2000) , Tuf , Thinkpad(2200) , XPS(3000) ;
+// enum Status{
+//     Running,
+//     Faild,
+//     Pending,
+//     Success
+// }
+// enum Laptop{
+//     Macbook(2000) , Tuf , Thinkpad(2200) , XPS(3000) ;
 
-    private int price;
+//     private int price;
 
-    private Laptop(int price) {
-        this.price = price;
-    }
-    private Laptop(){
-        price = 1800;
-    }
-    public int getPrice() {
-        return price;
-    }
-    public void setPrice(int price) {
-        this.price = price;
-    }
-    
-
-}
+//     private Laptop(int price) {
+//         this.price = price;
+//     }
+//     private Laptop(){
+//         price = 1800;
+//     }
+//     public int getPrice() {
+//         return price;
+//     }
+//     public void setPrice(int price) {
+//         this.price = price;
+//     }
+// }
 
 //interfaces
 // interface I {
@@ -535,12 +539,27 @@ class Main {
         //     System.out.println(status+" : "+status.ordinal());
         // }
 
-        Laptop lap = Laptop.Tuf;
+        // Laptop lap = Laptop.Tuf;
         
-        for (Laptop laptop : lap.values()) {
-            System.out.println(laptop+ " : " +laptop.getPrice());
-        }
+        // for (Laptop laptop : lap.values()) {
+        //     System.out.println(laptop+ " : " +laptop.getPrice());
+        // }
 
+    //Functional Interface
+        I obj = new I() {
+            @Override
+            public int add(int i,int j){
+                return i+j;
+            }
+            
+        };
+       int r =  obj.add(5,8);
+       System.out.println(r);
+    //Lamda Expression
+    I obj1 =  (i,j) ->  i+j;
+       
+   int r1 =  obj1.add(2,3);
+   System.out.println(r1);
 
     }
 }
