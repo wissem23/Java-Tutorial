@@ -203,6 +203,7 @@
 
 // }
 
+import java.util.Scanner;
 
 class Main {
     public static void main( String[] args) {
@@ -559,29 +560,88 @@ class Main {
         //I obj1 =  (i,j) ->  i+j;
         //int r1 =  obj1.add(2,3);
         //System.out.println(r1);
-    //Exeption
-        int j=0;
-        int i = 2; // 0
-        int tab[] = new int[5]; 
-        String str = "not null"; // null
-        try
-        {
-            j=18/i;
-            System.out.println(tab[2]); // 5>=
-            System.out.println(str.length()); 
+    //Exception
+        // int j=0;
+        // int i = 2; // 0
+        // int tab[] = new int[5]; 
+        // String str = "not null"; // null
+        // try
+        // {
+        //     j=18/i;
+        //     System.out.println(tab[2]); // 5>=
+        //     System.out.println(str.length()); 
 
-        }catch(ArithmeticException e){
-            System.out.println("dont divide by zero :"+e);
-        }catch(ArrayIndexOutOfBoundsException e){
-            System.out.println("out of index : "+e);
-        }catch(NullPointerException e){
-            System.out.println("null string : "+e);
-        }catch(Exception e){
-            System.out.println(e);
+        // }catch(ArithmeticException e){
+        //     System.out.println("dont divide by zero :"+e);
+        // }catch(ArrayIndexOutOfBoundsException e){
+        //     System.out.println("out of index : "+e);
+        // }catch(NullPointerException e){
+        //     System.out.println("null string : "+e);
+        // }catch(Exception e){
+        //     System.out.println(e);
+        // }
+       
+        // System.out.println(j);
+        // System.out.println("end excution");
+
+     // throw (handil exception)
+        // int j=0;
+        // int i = 20; 
+        // // i dont j to be 0 i want it 1 by default if it 0
+        // try
+        // {
+        //     j=18/i;
+        //     if(j==0){
+        //         j=1;
+        //         throw new Exception("j is not be 0");
+        //     }
+
+        // }catch(ArithmeticException e){
+        //     System.out.println("dont divide by zero :"+e);
+        // }catch(Exception e){
+        //     System.out.println(e);
+        // }
+       
+        // System.out.println(j);
+        // System.out.println("end excution");
+    //inputs ressources
+
+        // System.out.println("enter a number");
+        // Scanner sc = new Scanner(System.in);
+        // int num = sc.nextInt();
+        // System.out.println(num);
+
+        // System.out.println("enter a string");
+        // Scanner sc1 = new Scanner(System.in);
+        // String str = sc1.next();
+        // System.out.println(str);
+
+        //try with resources
+        System.out.println("enter a number");
+        try (Scanner sc = new Scanner(System.in)) { // auto closing
+            int num = sc.nextInt();
+            System.out.println(num);
         }
-        
-        System.out.println(j);
-        System.out.println("end excution");
+        // or try finally with resources  
+        System.out.println("enter a number");
+        Scanner sc1 = null;
+        try  { 
+            sc1 = new Scanner(System.in);
+            int num = sc1.nextInt();
+            System.out.println(num);
+        }finally{
+            sc1.close();
+        }
+
+
+
+
+
+
+
+
+
+
 
     }
 }
