@@ -1,40 +1,89 @@
 
+//import tools.*;
+//import java.util.Scanner;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Hashtable;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
+//Comparable
+class Student implements Comparable<Student>{
+    
+    private String name;
+    private int age;
+    @Override
+    public int compareTo(Student that) {
+        if(this.age > that.age)
+            return 1;
+        else 
+            return -1;
+    }
+    @Override
+    public String toString() {
+        return "Student [name=" + name + ", age=" + age + "]";
+    }
+    public String getName() {
+        return name;
+    }
+    public Student(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public int getAge() {
+        return age;
+    }
+    public void setAge(int age) {
+        this.age = age;
+    }
+    
+    
+} 
 //Threads
 
-class A extends Thread{
-    public void run(){
-        for(int i=0;i<10;i++){
-            System.out.println("Hi");
-            try {
-               Thread.sleep(10);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
+// class A extends Thread{
+//     public void run(){
+//         for(int i=0;i<10;i++){
+//             System.out.println("Hi");
+//             try {
+//                Thread.sleep(10);
+//             } catch (InterruptedException e) {
+//                 e.printStackTrace();
+//             }
+//         }
        
-    }
-}
-class B implements Runnable{
-    public void run(){
-        for(int i=0;i<10;i++){
-            System.out.println("Hello");
-            try {
-                Thread.sleep(10);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-       
-    }
-}
-class Counter {
-    int count;
-    public synchronized void increment(){
-        count++;
-    }
-}
+//     }
 // }
+// class B implements Runnable{
+//     public void run(){
+//         for(int i=0;i<10;i++){
+//             System.out.println("Hello");
+//             try {
+//                 Thread.sleep(10);
+//             } catch (InterruptedException e) {
+//                 e.printStackTrace();
+//             }
+//         }
+       
+//     }
+// }
+// class Counter {
+//     int count;
+//     public synchronized void increment(){
+//         count++;
+//     }
+// }
+
 
 
 // @FunctionalInterface   // have one methode
@@ -70,6 +119,10 @@ class Counter {
 // }
 
 //interfaces
+// Class - Class : extends
+// Class - Interface : implements
+// Interface - Interface : extends
+
 // interface I {
 //     int age = 18;        // by default: static final
     
@@ -235,12 +288,8 @@ class Counter {
 //     public void show(){
 //         System.out.println("in D show");
 //     }
-   
-
 // }
 
-//import tools.*;
-//import java.util.Scanner;
 
 class Main {
     public static void main( String[] args) {
@@ -694,54 +743,218 @@ class Main {
         // th1.start();
 
         // Race Condition
-        Counter c = new Counter(); 
-        Runnable obj5 = ()-> {
-            for(int i=0;i<10;i++){
-                c.increment();
-                try {
-                    Thread.sleep(10);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        };
-        Runnable obj6 = ()-> {
-            for(int i=0;i<10;i++){
-                c.increment();
-                try {
-                    Thread.sleep(10);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        };
-        Thread th5 = new Thread(obj5);
-        Thread th6 = new Thread(obj6);
-        th5.start();
-        th6.start();
+        // Counter c = new Counter(); 
+        // Runnable obj5 = ()-> {
+        //     for(int i=0;i<10;i++){
+        //         c.increment();
+        //         try {
+        //             Thread.sleep(10);
+        //         } catch (InterruptedException e) {
+        //             e.printStackTrace();
+        //         }
+        //     }
+        // };
+        // Runnable obj6 = ()-> {
+        //     for(int i=0;i<10;i++){
+        //         c.increment();
+        //         try {
+        //             Thread.sleep(10);
+        //         } catch (InterruptedException e) {
+        //             e.printStackTrace();
+        //         }
+        //     }
+        // };
+        // Thread th5 = new Thread(obj5);
+        // Thread th6 = new Thread(obj6);
+        // th5.start();
+        // th6.start();
 
-        try {
-            th5.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        // try {
+        //     th5.join();
+        // } catch (InterruptedException e) {
+        //     e.printStackTrace();
+        // }
 
-        try {
-            th6.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        // try {
+        //     th6.join();
+        // } catch (InterruptedException e) {
+        //     e.printStackTrace();
+        // }
 
-        System.out.println(c.count);
+        // System.out.println(c.count);
         
-       
+    // Collection Api
+        //Collection Api : concept , Collection : Interface , Collections  : Class
+        //Collection : add & fetch & duplicate values
+        System.out.println("------Collection & ArrayList()------");
+        Collection<Integer>nums = new ArrayList<Integer>();
+        nums.add(8);
+        nums.add(4);
+        nums.add(1);
+        nums.add(8);
+        System.out.println(nums);
+        for (int i : nums) {
+            System.out.println(i);
+        }
+        System.out.println("------List & ArrayList()------");
 
+        //List : also support index values 
+        List<Integer>list = new ArrayList<Integer>();
+        list.add(8);
+        list.add(4);
+        list.add(1);
+        list.add(8);
+        System.out.println(list.get(0));
+        System.out.println(list.indexOf(4));
+        System.out.println(list);
+        for (int l : list) {
+            System.out.println(l);
+        }
+        System.out.println("------Set & HashSet()------");
 
+        //Set & HashSet: doesn't support Duplicate values 
+        Set<Integer>set = new HashSet<Integer>();
+        set.add(8);
+        set.add(44);
+        set.add(1);
+        set.add(8);
+        set.add(74);
+        set.add(11);
+        set.add(74);
+        
+        System.out.println(set);
+        for (int s : set) {
+            System.out.println(s);
+        }
+        // TreeSet() support sorted format 
+        System.out.println("------Set & TreeSet()------");
+        Set<Integer>tree = new TreeSet<Integer>();
+        tree.add(8);
+        tree.add(44);
+        tree.add(1);
+        tree.add(8);
+        tree.add(74);
+        tree.add(11);
+        tree.add(74);
+        
+        // System.out.println(tree);
+        // for (int t : tree) {
+        //     System.out.println(t);
+        // }
 
+        // use iterator()
+        Iterator<Integer> values = tree.iterator(); 
+        while (values.hasNext()) {
+           System.out.println( values.next());
+        }
+    
+    //Map
+    System.out.println("----------Map--------");
+        Map<String,Integer> student = new HashMap<String,Integer>();  //not synchronized
+        //Hashtable()  is synchronized
+        student.put("wissem", 87);
+        student.put("rami",77);
+        student.put("ali",21);
+        student.put("ahmed",56); 
+        student.put("rami",97);
 
+        System.out.println(student);
+        System.out.println(student.get("wissem"));
 
+        
+        //Set<String> i = student.keySet();
+        for (String key : student.keySet()) {
+            System.out.println(key+ " : "+student.get(key));
+        }
+    
+    //Comparator
+    System.out.println("----------Comparator--------");
 
+    Comparator<Integer> com = new Comparator<Integer>() {
 
+        @Override
+        public int compare(Integer o1, Integer o2) {
+            if(o1%10 > o2%10)
+                return 1;
+            else 
+                return -1;
+        }
+    };
+    //lamda expression (comparator is fanctional interface)
+    // Comparator<Integer> com = ( o1, o2)-> {
+    //     if(o1%10 > o2%10)
+    //         return 1;
+    //     else 
+    //         return -1;
+    // };
+
+    List<Integer>l = new ArrayList<>();
+    l.add(82);
+    l.add(41);
+    l.add(19);
+    l.add(66);
+    System.out.println(l);
+
+    Collections.sort(l);
+    System.out.println(l);
+
+    Collections.sort(l,com);
+    System.out.println(l);
+
+    
+    
+    Comparator<String> co = ( o1,  o2)-> {
+        if(o1.length() > o2.length())
+            return 1;
+        else 
+            return -1;
+        
+    };
+
+    List<String>names = new ArrayList<>();
+    names.add("wissem");
+    names.add("abdullah");
+    names.add("jon");
+    names.add("zied");
+    System.out.println(names);
+
+    Collections.sort(names);
+    System.out.println(names);
+
+    Collections.sort(names,co);
+    System.out.println(names);
+
+    //Comparable 
+    System.out.println("----------Comparable--------");
+
+    Comparator<Student> comm = ( o1,  o2)-> o1.getAge() > o2.getAge() ? 1 : -1;   //ternary & Lamda expression
+        //{
+        // if(o1.getAge() > o2.getAge())
+        //     return 1;
+        // else 
+        //     return -1;
+        //} ;
+        
+        
+    
+        List<Student>std = new ArrayList<>();
+        std.add(new Student("wissem", 26));
+        std.add(new Student("ali", 20));
+        std.add(new Student("rami", 35));
+        std.add(new Student("sami", 14));
+        System.out.println(std);
+
+        //Comparator
+        Collections.sort(std,comm);
+        System.out.println(std);
+
+        //Comparable
+        Collections.sort(std);
+        System.out.println(std);
+        for (Student s : std) {
+            System.out.println(s);
+            
+        }
 
 
     }
