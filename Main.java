@@ -1,5 +1,41 @@
 
-//import tools.*;
+
+//Threads
+
+class A extends Thread{
+    public void run(){
+        for(int i=0;i<10;i++){
+            System.out.println("Hi");
+            try {
+               Thread.sleep(10);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+       
+    }
+}
+class B implements Runnable{
+    public void run(){
+        for(int i=0;i<10;i++){
+            System.out.println("Hello");
+            try {
+                Thread.sleep(10);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+       
+    }
+}
+class Counter {
+    int count;
+    public synchronized void increment(){
+        count++;
+    }
+}
+// }
+
 
 // @FunctionalInterface   // have one methode
 // interface I {
@@ -203,7 +239,8 @@
 
 // }
 
-import java.util.Scanner;
+//import tools.*;
+//import java.util.Scanner;
 
 class Main {
     public static void main( String[] args) {
@@ -617,23 +654,87 @@ class Main {
         // System.out.println(str);
 
         //try with resources
-        System.out.println("enter a number");
-        try (Scanner sc = new Scanner(System.in)) { // auto closing
-            int num = sc.nextInt();
-            System.out.println(num);
-        }
-        // or try finally with resources  
-        System.out.println("enter a number");
-        Scanner sc1 = null;
-        try  { 
-            sc1 = new Scanner(System.in);
-            int num = sc1.nextInt();
-            System.out.println(num);
-        }finally{
-            sc1.close();
+        // System.out.println("enter a number");
+        // try (Scanner sc = new Scanner(System.in)) { // auto closing
+        //     int num = sc.nextInt();
+        //     System.out.println(num);
+        // }
+        // // or try finally with resources  
+        // System.out.println("enter a number");
+        // Scanner sc1 = null;
+        // try  { 
+        //     sc1 = new Scanner(System.in);
+        //     int num = sc1.nextInt();
+        //     System.out.println(num);
+        // }finally{
+        //     sc1.close();
+        // }
+    
+    //Threads
+        // A obj1 = new A();
+        // //obj1.setPriority(Thread.MAX_PRIORITY);
+        // //System.out.println(obj1.getPriority());
+        // Runnable obj2 = new B();
+        // Thread th = new Thread(obj2);
+        // obj1.start();
+        // th.start();
+
+        // // Lamda expression (Runnuble is a fonctional interface)
+        // Runnable obj3 = ()-> {
+        //                 for(int i=0;i<10;i++){
+        //                     System.out.println("Ola");
+        //                     try {
+        //                         Thread.sleep(10);
+        //                     } catch (InterruptedException e) {
+        //                         e.printStackTrace();
+        //                     }
+        //                 }
+        // };
+        // Thread th1 = new Thread(obj3);
+        // th1.start();
+
+        // Race Condition
+        Counter c = new Counter(); 
+        Runnable obj5 = ()-> {
+            for(int i=0;i<10;i++){
+                c.increment();
+                try {
+                    Thread.sleep(10);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+        Runnable obj6 = ()-> {
+            for(int i=0;i<10;i++){
+                c.increment();
+                try {
+                    Thread.sleep(10);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+        Thread th5 = new Thread(obj5);
+        Thread th6 = new Thread(obj6);
+        th5.start();
+        th6.start();
+
+        try {
+            th5.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
 
+        try {
+            th6.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
+        System.out.println(c.count);
+        
+       
 
 
 
