@@ -3,6 +3,7 @@
 //import java.util.Scanner;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
@@ -14,41 +15,46 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.function.BinaryOperator;
 //Comparable
-class Student implements Comparable<Student>{
+// class Student implements Comparable<Student>{
+import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.stream.Stream;
     
-    private String name;
-    private int age;
-    @Override
-    public int compareTo(Student that) {
-        if(this.age > that.age)
-            return 1;
-        else 
-            return -1;
-    }
-    @Override
-    public String toString() {
-        return "Student [name=" + name + ", age=" + age + "]";
-    }
-    public String getName() {
-        return name;
-    }
-    public Student(String name, int age) {
-        this.name = name;
-        this.age = age;
-    }
-    public void setName(String name) {
-        this.name = name;
-    }
-    public int getAge() {
-        return age;
-    }
-    public void setAge(int age) {
-        this.age = age;
-    }
+//     private String name;
+//     private int age;
+//     @Override
+//     public int compareTo(Student that) {
+//         if(this.age > that.age)
+//             return 1;
+//         else 
+//             return -1;
+//     }
+//     @Override
+//     public String toString() {
+//         return "Student [name=" + name + ", age=" + age + "]";
+//     }
+//     public String getName() {
+//         return name;
+//     }
+//     public Student(String name, int age) {
+//         this.name = name;
+//         this.age = age;
+//     }
+//     public void setName(String name) {
+//         this.name = name;
+//     }
+//     public int getAge() {
+//         return age;
+//     }
+//     public void setAge(int age) {
+//         this.age = age;
+//     }
     
     
-} 
+// } 
 //Threads
 
 // class A extends Thread{
@@ -784,177 +790,298 @@ class Main {
         // System.out.println(c.count);
         
     // Collection Api
-        //Collection Api : concept , Collection : Interface , Collections  : Class
-        //Collection : add & fetch & duplicate values
-        System.out.println("------Collection & ArrayList()------");
-        Collection<Integer>nums = new ArrayList<Integer>();
-        nums.add(8);
-        nums.add(4);
-        nums.add(1);
-        nums.add(8);
-        System.out.println(nums);
-        for (int i : nums) {
-            System.out.println(i);
-        }
-        System.out.println("------List & ArrayList()------");
+    //     //Collection Api : concept , Collection : Interface , Collections  : Class
+    //     //Collection : add & fetch & duplicate values
+    //     System.out.println("------Collection & ArrayList()------");
+    //     Collection<Integer>nums = new ArrayList<Integer>();
+    //     nums.add(8);
+    //     nums.add(4);
+    //     nums.add(1);
+    //     nums.add(8);
+    //     System.out.println(nums);
+    //     for (int i : nums) {
+    //         System.out.println(i);
+    //     }
+    //     System.out.println("------List & ArrayList()------");
 
-        //List : also support index values 
-        List<Integer>list = new ArrayList<Integer>();
-        list.add(8);
-        list.add(4);
-        list.add(1);
-        list.add(8);
-        System.out.println(list.get(0));
-        System.out.println(list.indexOf(4));
-        System.out.println(list);
-        for (int l : list) {
-            System.out.println(l);
-        }
-        System.out.println("------Set & HashSet()------");
+    //     //List : also support index values 
+    //     List<Integer>list = new ArrayList<Integer>();
+    //     list.add(8);
+    //     list.add(4);
+    //     list.add(1);
+    //     list.add(8);
+    //     System.out.println(list.get(0));
+    //     System.out.println(list.indexOf(4));
+    //     System.out.println(list);
+    //     for (int l : list) {
+    //         System.out.println(l);
+    //     }
+    //     System.out.println("------Set & HashSet()------");
 
-        //Set & HashSet: doesn't support Duplicate values 
-        Set<Integer>set = new HashSet<Integer>();
-        set.add(8);
-        set.add(44);
-        set.add(1);
-        set.add(8);
-        set.add(74);
-        set.add(11);
-        set.add(74);
+    //     //Set & HashSet: doesn't support Duplicate values 
+    //     Set<Integer>set = new HashSet<Integer>();
+    //     set.add(8);
+    //     set.add(44);
+    //     set.add(1);
+    //     set.add(8);
+    //     set.add(74);
+    //     set.add(11);
+    //     set.add(74);
         
-        System.out.println(set);
-        for (int s : set) {
-            System.out.println(s);
-        }
-        // TreeSet() support sorted format 
-        System.out.println("------Set & TreeSet()------");
-        Set<Integer>tree = new TreeSet<Integer>();
-        tree.add(8);
-        tree.add(44);
-        tree.add(1);
-        tree.add(8);
-        tree.add(74);
-        tree.add(11);
-        tree.add(74);
+    //     System.out.println(set);
+    //     for (int s : set) {
+    //         System.out.println(s);
+    //     }
+    //     // TreeSet() support sorted format 
+    //     System.out.println("------Set & TreeSet()------");
+    //     Set<Integer>tree = new TreeSet<Integer>();
+    //     tree.add(8);
+    //     tree.add(44);
+    //     tree.add(1);
+    //     tree.add(8);
+    //     tree.add(74);
+    //     tree.add(11);
+    //     tree.add(74);
         
-        // System.out.println(tree);
-        // for (int t : tree) {
-        //     System.out.println(t);
-        // }
+    //     // System.out.println(tree);
+    //     // for (int t : tree) {
+    //     //     System.out.println(t);
+    //     // }
 
-        // use iterator()
-        Iterator<Integer> values = tree.iterator(); 
-        while (values.hasNext()) {
-           System.out.println( values.next());
-        }
+    //     // use iterator()
+    //     Iterator<Integer> values = tree.iterator(); 
+    //     while (values.hasNext()) {
+    //        System.out.println( values.next());
+    //     }
     
-    //Map
-    System.out.println("----------Map--------");
-        Map<String,Integer> student = new HashMap<String,Integer>();  //not synchronized
-        //Hashtable()  is synchronized
-        student.put("wissem", 87);
-        student.put("rami",77);
-        student.put("ali",21);
-        student.put("ahmed",56); 
-        student.put("rami",97);
+    // //Map
+    // System.out.println("----------Map--------");
+    //     Map<String,Integer> student = new HashMap<String,Integer>();  //not synchronized
+    //     //Hashtable()  is synchronized
+    //     student.put("wissem", 87);
+    //     student.put("rami",77);
+    //     student.put("ali",21);
+    //     student.put("ahmed",56); 
+    //     student.put("rami",97);
 
-        System.out.println(student);
-        System.out.println(student.get("wissem"));
+    //     System.out.println(student);
+    //     System.out.println(student.get("wissem"));
 
         
-        //Set<String> i = student.keySet();
-        for (String key : student.keySet()) {
-            System.out.println(key+ " : "+student.get(key));
-        }
+    //     //Set<String> i = student.keySet();
+    //     for (String key : student.keySet()) {
+    //         System.out.println(key+ " : "+student.get(key));
+    //     }
     
-    //Comparator
-    System.out.println("----------Comparator--------");
+    // //Comparator
+    // System.out.println("----------Comparator--------");
 
-    Comparator<Integer> com = new Comparator<Integer>() {
+    // Comparator<Integer> com = new Comparator<Integer>() {
 
-        @Override
-        public int compare(Integer o1, Integer o2) {
-            if(o1%10 > o2%10)
-                return 1;
-            else 
-                return -1;
-        }
-    };
-    //lamda expression (comparator is fanctional interface)
-    // Comparator<Integer> com = ( o1, o2)-> {
-    //     if(o1%10 > o2%10)
+    //     @Override
+    //     public int compare(Integer o1, Integer o2) {
+    //         if(o1%10 > o2%10)
+    //             return 1;
+    //         else 
+    //             return -1;
+    //     }
+    // };
+    // //lamda expression (comparator is fanctional interface)
+    // // Comparator<Integer> com = ( o1, o2)-> {
+    // //     if(o1%10 > o2%10)
+    // //         return 1;
+    // //     else 
+    // //         return -1;
+    // // };
+
+    // List<Integer>l = new ArrayList<>();
+    // l.add(82);
+    // l.add(41);
+    // l.add(19);
+    // l.add(66);
+    // System.out.println(l);
+
+    // Collections.sort(l);
+    // System.out.println(l);
+
+    // Collections.sort(l,com);
+    // System.out.println(l);
+
+    
+    
+    // Comparator<String> co = ( o1,  o2)-> {
+    //     if(o1.length() > o2.length())
     //         return 1;
     //     else 
     //         return -1;
+        
     // };
 
-    List<Integer>l = new ArrayList<>();
-    l.add(82);
-    l.add(41);
-    l.add(19);
-    l.add(66);
-    System.out.println(l);
+    // List<String>names = new ArrayList<>();
+    // names.add("wissem");
+    // names.add("abdullah");
+    // names.add("jon");
+    // names.add("zied");
+    // System.out.println(names);
 
-    Collections.sort(l);
-    System.out.println(l);
+    // Collections.sort(names);
+    // System.out.println(names);
 
-    Collections.sort(l,com);
-    System.out.println(l);
+    // Collections.sort(names,co);
+    // System.out.println(names);
 
-    
-    
-    Comparator<String> co = ( o1,  o2)-> {
-        if(o1.length() > o2.length())
-            return 1;
-        else 
-            return -1;
-        
-    };
+    // //Comparable 
+    // System.out.println("----------Comparable--------");
 
-    List<String>names = new ArrayList<>();
-    names.add("wissem");
-    names.add("abdullah");
-    names.add("jon");
-    names.add("zied");
-    System.out.println(names);
-
-    Collections.sort(names);
-    System.out.println(names);
-
-    Collections.sort(names,co);
-    System.out.println(names);
-
-    //Comparable 
-    System.out.println("----------Comparable--------");
-
-    Comparator<Student> comm = ( o1,  o2)-> o1.getAge() > o2.getAge() ? 1 : -1;   //ternary & Lamda expression
-        //{
-        // if(o1.getAge() > o2.getAge())
-        //     return 1;
-        // else 
-        //     return -1;
-        //} ;
+    // Comparator<Student> comm = ( o1,  o2)-> o1.getAge() > o2.getAge() ? 1 : -1;   //ternary & Lamda expression
+    //     //{
+    //     // if(o1.getAge() > o2.getAge())
+    //     //     return 1;
+    //     // else 
+    //     //     return -1;
+    //     //} ;
         
         
     
-        List<Student>std = new ArrayList<>();
-        std.add(new Student("wissem", 26));
-        std.add(new Student("ali", 20));
-        std.add(new Student("rami", 35));
-        std.add(new Student("sami", 14));
-        System.out.println(std);
+    //     List<Student>std = new ArrayList<>();
+    //     std.add(new Student("wissem", 26));
+    //     std.add(new Student("ali", 20));
+    //     std.add(new Student("rami", 35));
+    //     std.add(new Student("sami", 14));
+    //     System.out.println(std);
 
-        //Comparator
-        Collections.sort(std,comm);
-        System.out.println(std);
+    //     //Comparator
+    //     Collections.sort(std,comm);
+    //     System.out.println(std);
 
-        //Comparable
-        Collections.sort(std);
-        System.out.println(std);
-        for (Student s : std) {
-            System.out.println(s);
+    //     //Comparable
+    //     Collections.sort(std);
+    //     System.out.println(std);
+    //     for (Student s : std) {
+    //         System.out.println(s);
             
-        }
+    //     }
+
+//Stream API
+    List<Integer> l = Arrays.asList(1,4,5,7,2,6);
+
+    // Stream<Integer> s1 = l.stream();
+    // Stream<Integer> s2 = s1.filter(i->i%2==0);
+    // Stream<Integer> s3 = s2.map(i->i*2);
+    // int result = s3.reduce(0, (c,e)->c+e);
+    //s3.forEach(i->System.out.println(i));
+    // System.out.println(result);
+
+    int result = l.stream()                           
+                  .filter(i->i%2==0)                 // transfer filtering data without change it
+                  .map(i->i*2)                       // make change in data  stream
+                  .reduce(0, (c,e)->c+e);   //make change in type data  stream returned
+
+    System.out.println(result);
+
+    // explication ressources
+    //filter()
+    //1
+    
+    // Predicate<Integer> p = new Predicate<Integer>() {
+
+    //     @Override
+    //     public boolean test(Integer t) {
+    //         return t%2 == 0 ;
+    //     }    
+    // };
+    //2
+    Predicate<Integer> p =  t-> t%2 == 0 ;
+    
+    Stream<Integer> st1 = l.stream()
+                        .filter(p);
+    st1.forEach(i->System.out.println(i));
+
+    //map()
+    //1
+    // Function<Integer,Integer> f = new Function<>() {
+
+    //     @Override
+    //     public Integer apply(Integer t) {
+    //         return t*2 ;
+    //     }
+    // };
+    //2
+    Function<Integer,Integer> f =  t->  t*2 ;
+        
+    Stream<Integer> st2 = l.stream()
+                        .filter(p)
+                        .map(f);
+    st2.forEach(i->System.out.println(i));
+    
+    // reduce()
+    //1
+    // BinaryOperator<Integer> b = new BinaryOperator<Integer>() {
+
+    //     @Override
+    //     public Integer apply(Integer t, Integer u) {
+    //         return t+u ;
+    //     }
+        
+    // };
+
+    //2
+    BinaryOperator<Integer> b = (t, u) -> t+u ;
+
+    int result1 = l.stream()                           
+                    .filter(p)
+                    .map(f)                     
+                    .reduce(0, b);
+
+    System.out.println(result1);
+
+    //sorted
+    Stream<Integer> sotedStream = l.stream()                           
+                  //.filter(i->i%2==0)                 
+                  .sorted();
+    sotedStream.forEach(i->System.out.println(i));
+
+    // for multi threads use parallelStream()
+    
+
+    // // normal for loop
+    // for(int i =0;i<l.size();i++){
+    //     System.out.println(l.get(i));
+    // }
+
+    // // Enhanced for loop
+    // for (Integer i : l) {
+    //     System.out.println(i);
+    // }
+    
+    // //forEach loop
+    // l.forEach(i->System.out.println(i));
+   
+    // // explication forEach loop
+    // //1
+    // Consumer<Integer> con = new Consumer<Integer>() {
+    //     @Override
+    //     public void accept(Integer i) {
+    //         System.out.println(i);
+    //     }
+    // };
+    // //2
+    // Consumer<Integer> conn = i -> System.out.println(i);  
+    // System.out.println(conn);
+   
+    // // int s= 0;
+    // // for (int i : l) {
+    // //     if(i%2==0){
+    // //         i*=2;
+    // //         s+=i;
+    // //     }    
+    // // }
+    // // System.out.println(l);
+    // // System.out.println(s);
+
+    
+
+
 
 
     }
